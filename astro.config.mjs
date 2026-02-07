@@ -5,7 +5,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-    // Adding Vite aliases here lets you use "@components" in your MDX files
+    site: 'http://192.168.68.82:7151', // OR the public port you chose in Caddy
+  // base: '/docs',                  // ONLY use this if you want 192.168.68.82/docs
     vite: {
         resolve: {
             alias: {
