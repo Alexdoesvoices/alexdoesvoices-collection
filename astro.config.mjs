@@ -5,8 +5,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'http://192.168.68.82:7151', // OR the public port you chose in Caddy
-  // base: '/docs',                  // ONLY use this if you want 192.168.68.82/docs
+    site: 'http://192.168.68.82:7151',
+    base: '/app2',
     vite: {
         resolve: {
             alias: {
