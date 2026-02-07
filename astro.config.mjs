@@ -6,7 +6,6 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
     site: 'http://192.168.68.82:7151',
-    base: '/app2',
     vite: {
         resolve: {
             alias: {
