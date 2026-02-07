@@ -25,7 +25,7 @@ export default defineConfig({
             }],
             sidebar: [{
                     label: 'Index',
-                    link: 'home'
+                    link: '/home'
                 },
                 {
                     label: 'Collections',
