@@ -30,7 +30,6 @@ export default defineConfig({
                 {
                     label: 'Collections',
                     autogenerate: { directory: 'collection' },
-                    link: '/',
                 },
             ],
         }),
