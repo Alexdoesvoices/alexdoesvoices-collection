@@ -1,23 +1,37 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
 import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [starlight({
-        title: 'My Docs',
-        social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-        sidebar: [
-            {
-                label: 'Index',
-                link: '/home'
+    // Adding Vite aliases here lets you use "@components" in your MDX files
+    vite: {
+        resolve: {
+            alias: {
+                '@components': '/src/components',
+                '@assets': '/src/assets',
             },
-            {
-                label: 'Collections',
-                autogenerate: {directory: 'collection'},
-            },
-        ],
-		}), mdx()],
+        },
+    },
+    integrations: [
+        starlight({
+            title: 'My Docs',
+            social: [{
+                icon: 'github',
+                label: 'GitHub',
+                href: 'https://github.com/withastro/starlight'
+            }],
+            sidebar: [{
+                    label: 'Index',
+                    link: '/home'
+                },
+                {
+                    label: 'Collections',
+                    autogenerate: { directory: 'collection' },
+                },
+            ],
+        }),
+        mdx()
+    ],
 });
