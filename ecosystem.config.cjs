@@ -2,13 +2,12 @@ module.exports = {
   apps: [
     {
       name: 'starlight-docs',
-      script: 'serve', 
+      // We use 'npx serve' to ensure the serve package is called correctly
+      script: 'bunx',
+      args: 'serve -p 7151 -s dist',
+      cwd: '/home/arobinson/dev/projects/alexdoesvoices-collection',
       env: {
-        PM2_SERVE_PATH: '/home/arobinson/dev/projects/alexdoesvoices-collection/dist', 
-        PM2_SERVE_PORT: 7151,
-        PM2_SERVE_SPA: 'true',
-        // THIS TELLS PM2 HOW TO RESOLVE DIRECTORIES
-        PM2_SERVE_HOMEPAGE: '/index.html' 
+        NODE_ENV: 'production'
       }
     }
   ]
