@@ -9,7 +9,7 @@ bun create astro@latest -- --template starlight
 Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
 
 
-#Stack: 
+# Stack: 
 
 *Runtime: Bun.
 *Framework: Astro with Starlight.
