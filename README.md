@@ -11,6 +11,6 @@ Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro 
 
 # Stack: 
 
-*Runtime: Bun.
-*Framework: Astro with Starlight.
-*SelfDeployment: PM2 with Caddy.
+- Runtime: Bun.
+- Framework: Astro with Starlight.
+- SelfDeployment: PM2 with Caddy.
