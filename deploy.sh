@@ -17,6 +17,6 @@ bun run build
 pm2 restart ecosystem.config.cjs
 
 # 5. SMS Notification
-echo "Deploy Successful: $(date +'%H:%M')" | mail -s "Deploy" contact@alexdoesvoices.com
+echo "Deploy Successful: $(date +'%H:%M')" | mail -s "Collections app rebuilt" contact@alexdoesvoices.com
 
 echo "Done!"
