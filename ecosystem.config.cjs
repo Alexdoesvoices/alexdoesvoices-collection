@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'starlight-docs',
+      name: 'adv-collection',
       script: 'bun',
       // We removed '-s' and added '--dotfiles' just in case. 
       // We use the absolute path to the dist folder.
