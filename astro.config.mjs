@@ -18,19 +18,26 @@ export default defineConfig({
     },
     integrations: [
         starlight({
-            title: 'My Docs',
-            social: [{
+            title: 'Alexdoesvoices Collection',
+         social: [
+            {
                 icon: 'github',
                 label: 'GitHub',
-                href: 'https://github.com/withastro/starlight'
-            }],
+                href: 'https://github.com/Alexdoesvoices/alexdoesvoices-collection'
+            },
+            {
+                icon: 'discord',
+                label: 'Discord',
+                href: 'https://discord.com/invite/eh6rPmZmHw'
+            },
+         ],
             sidebar: [{
                     label: 'Index',
                     link: '/home'
                 },
                 {
                     label: 'Collections',
-                    autogenerate: { directory: 'collection' },
+                    autogenerate: { directory: 'collections' },
                 },
             ],
         }),
