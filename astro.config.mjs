@@ -37,8 +37,13 @@ export default defineConfig({
                 },
                 {
                     label: 'Collections',
+                    // items: [
+                    // { label: 'Pokemon', autogenerate: { directory: 'collections/Pokemon' } },
+                    // ],
                     autogenerate: { directory: 'collections' },
+
                 },
+
             ],
         }),
         mdx()
