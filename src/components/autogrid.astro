@@ -4,48 +4,80 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-  folder: string; 
+  folder: string;
+  /** If true, only returns the number of images found */
+  countOnly?: boolean;
 }
 
-const { folder } = Astro.props;
+const { folder, countOnly = false } = Astro.props;
 
-// 1. The "**" allows Astro to look into any subfolder inside /src/assets/
-const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp,svg}');
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/*.{jpeg,jpg,png,gif,webp,svg}',
+  { eager: true }
+);
 
-// 2. We filter by checking if the path contains the folder name
 const imagePaths = Object.keys(allImages).filter((path) => {
   return path.includes(`/${folder}/`);
 });
+
+const imageCount = imagePaths.length;
+
+const formatAltText = (path: string) => {
+  const filename = path.split('/').pop()?.split('.')[0] || '';
+  return filename
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
 ---
 
-<div class="not-content grid-container">
-  {imagePaths.length > 0 ? (
-    imagePaths.map((path) => (
-      <div class="grid-item">
-        <Image 
-          src={allImages[path]()} 
-          alt={`Image from ${folder}`} 
-          width={400} 
-          height={400} 
-        />
-      </div>
-    ))
-  ) : (
-    <p>No images found in: src/assets/{folder}</p>
-  )}
-</div>
+{countOnly ? (
+  <span class="image-count">Total Items: {imageCount}</span>
+) : (
+  <div class="not-content grid-container">
+    {imageCount > 0 ? (
+      imagePaths.map((path) => {
+        const altName = formatAltText(path);
+        return (
+          <div class="grid-item">
+            <Image 
+              src={allImages[path].default} 
+              alt={altName} 
+              width={400} 
+              height={400} 
+              data-pagefind-index-attrs="alt"
+            />
+          </div>
+        )
+      })
+    ) : (
+      <p>No images found in: src/assets/{folder}</p>
+    )}
+  </div>
+)}
 
 <style>
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    margin: 1rem 0;
   }
   .grid-item img {
     border-radius: 8px;
     object-fit: cover;
     width: 100%;
-    height: fit-content;
+    /* Back to your original height setting */
+    height: fit-content; 
     display: block;
+    transition: transform 0.2s ease-in-out;
+  }
+  .grid-item img:hover {
+    transform: scale(1.02);
+  }
+  .image-count {
+    font-weight: bold;
+    font-size: 30px;
+    display: inline-block;
+    margin: 10px 0;
   }
 </style>
