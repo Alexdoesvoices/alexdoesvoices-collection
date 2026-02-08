@@ -18,4 +18,4 @@ echo "Deployment complete! Your app is updated."
 curl -H "Content-Type: application/json" \
      -X POST \
      -d '{"content": "🚀 **Deployment Successful!** AlexDoesVoices-Collection has been updated."}' \
-     https://discord.com/api/webhooks/1470172795651625002/RfuOmrzJeRqHays8MGvdsZYx-5baBpgNFdOA7raNt7qm-IdsUfE2YT5zwjyikUZkL6cF
+    https://discord.com/api/webhooks/1470173396967882897/_CWG0cFP23kr7gQSU9y6Qal6YLFAbeQW1MU5GmTk6c7F7jgtp51ch3hDCkMaWPwxnEq9
