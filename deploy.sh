@@ -13,3 +13,9 @@ bun run build
 pm2 restart ecosystem.config.cjs
 
 echo "Deployment complete! Your app is updated."
+
+# Send a Discord Notification
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d '{"content": "🚀 **Deployment Successful!** AlexDoesVoices-Collection has been updated."}' \
+     https://discord.com/api/webhooks/1470172795651625002/RfuOmrzJeRqHays8MGvdsZYx-5baBpgNFdOA7raNt7qm-IdsUfE2YT5zwjyikUZkL6cF
