@@ -7,7 +7,7 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
     site: 'http://192.168.68.82:7150',
     base: '/',
-    trailingSlash: 'always', 
+    // trailingSlash: 'always', 
     vite: {
         resolve: {
             alias: {
