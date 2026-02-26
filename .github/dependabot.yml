@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "npm" # Bun uses the npm registry
+  - package-ecosystem: "bun" # Bun uses the npm registry
     directory: "/"
     schedule:
       interval: "daily" # Check for new fixes every day
