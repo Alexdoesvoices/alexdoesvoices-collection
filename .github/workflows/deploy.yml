@@ -1,0 +1,17 @@
+name: Remote Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # This tells GitHub to use your machine
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run deploy script
+        run: |
+          chmod +x ./deploy.sh
+          ./deploy.sh
