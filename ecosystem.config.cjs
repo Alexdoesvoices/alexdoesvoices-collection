@@ -3,14 +3,16 @@ module.exports = {
     {
       name: 'adv-collection',
       script: 'bun',
-      // We removed '-s' and added '--dotfiles' just in case. 
-      // We use the absolute path to the dist folder.
-      // Change this line in your ecosystem.config.cjs:
-      args: 'x serve -l 7151 --a 0.0.0.0 /home/arobinson/dev/projects/alexdoesvoices-collection/dist',      
+      // The folder path MUST come before the flags for this version of 'serve'
+      args: 'x serve /home/arobinson/dev/projects/alexdoesvoices-collection/dist --listen 7151',
       cwd: '/home/arobinson/dev/projects/alexdoesvoices-collection',
       env: {
         NODE_ENV: 'production'
-      }
+      },
+      // Give the system 3 seconds to breathe on reboot
+      restart_delay: 3000,
+      // Ensure it doesn't try to use too much memory
+      max_memory_restart: '300M'
     }
   ]
 }
